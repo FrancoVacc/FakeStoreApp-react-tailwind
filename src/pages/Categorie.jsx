@@ -11,12 +11,11 @@ const Categorie = () => {
   return (
     <>
       <h1 className="text-purple-500 text-center text-lg mb-5">Categorie - {params.id}</h1>
-      <ul>
+      <div className='flex flex-wrap flex-grow justify-center'>
           {
             element.map((item)=>(<ItemCard key={item.id} item={item}/>))
           }
-      </ul>
-        <ItemCard/>
+      </div>
     </>
   )
 }
