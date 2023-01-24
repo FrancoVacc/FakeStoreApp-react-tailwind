@@ -8,7 +8,7 @@ const ItemCard = ({el}) => {
 
   return (
     <Link to={`/${id}`}>
-      <div className="bg-slate-300 rounded overflow-hidden m-5 w-52 hover:shadow-xl hover:shadow-slate-600">
+      <div className="bg-slate-200 rounded overflow-hidden m-5 w-52 hover:shadow-xl hover:shadow-slate-600">
         <div className="w-52 p-4 bg-white ">
           <img src={image} alt={title} />
         </div>
@@ -19,8 +19,8 @@ const ItemCard = ({el}) => {
           <p className="text-white">Usd ${price}</p>
           <div className="flex items-center">
             {" "}
-            <p className="m-1">{rating.rate}</p>
-            <i className="bi bi-star"></i>
+            <p className="m-1 text-white">{rating.rate}</p>
+            <i className="bi bi-star text-white"></i>
           </div>
         </div>
       </div>

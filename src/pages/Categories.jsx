@@ -9,7 +9,7 @@ const Categories = () => {
   return (
     <div>
       <h2 className="text-purple-500 text-center text-lg">Categories</h2>
-      <div className="flex justify-center flex-wrap px-4 m-auto">
+      <div className="flex justify-center flex-wrap m-auto">
         <Link to={`/categories/electronics`}>
           <img
             src={electronics}
