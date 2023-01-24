@@ -5,4 +5,5 @@
 
 .active{
     color: #8516b5;
+    border-bottom: 1px solid #8516b5;
 }

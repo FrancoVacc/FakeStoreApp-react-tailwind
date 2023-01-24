@@ -5,7 +5,7 @@ import About from "../pages/About";
 import Categorie, { loadCategorie } from "../pages/Categorie";
 import Categories from "../pages/Categories";
 import Home from "../pages/Home";
-import Product from "../pages/Product";
+import Product, { loadProduct } from "../pages/Product";
 
 
 export const router = createBrowserRouter([
@@ -30,7 +30,8 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/:id",
-                element:<Product/>
+                element:<Product/>,
+                loader:loadProduct,
             },
             {
                 path:"/about",
