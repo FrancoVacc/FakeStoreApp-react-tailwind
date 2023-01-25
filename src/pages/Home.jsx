@@ -32,7 +32,7 @@ const Home = () => {
             <Link key={el.id} to={`/${el.id}`}>
               <div className=" w-24 flex flex-col  m-4 border border-solid border-transparent overflow-hidden rounded-md hover:shadow-lg md:w-52">
                 <img src={el.image} alt="" className="p-4" />
-                <p className="text-white bg-green-600 text-xs md:text-lg">
+                <p className="text-center text-white bg-green-600 text-xs md:text-lg">
                   Usd$ {el.price}
                 </p>
               </div>

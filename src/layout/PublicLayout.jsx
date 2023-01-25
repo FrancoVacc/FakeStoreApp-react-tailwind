@@ -11,7 +11,7 @@ const PublicLayout = () => {
   return (
     <div>
         <NavBar/>
-        <main className=''>
+        <main>
           {
             navigation.state === "loading" ? <div className='flex justify-center'> <Loading/> </div>  : <Outlet/>
           }

@@ -6,6 +6,7 @@ import Categorie, { loadCategorie } from "../pages/Categorie";
 import Categories from "../pages/Categories";
 import Home from "../pages/Home";
 import Product, { loadProduct } from "../pages/Product";
+import Cart from "../components/Cart";
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path:"/about",
                 element:<About/>
+            },
+            {
+                path:"/cart",
+                element: <Cart/>
             }
         ]
     }
