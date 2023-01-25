@@ -1,29 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import img1 from "../img/home-img/1.png"
-import img2 from "../img/home-img/2.png"
-import img3 from "../img/home-img/3.png"
-import img4 from "../img/home-img/4.png"
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
+import Slider from "../components/Slider";
+import img4 from "../img/home-img/img4.png"
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products?limit=6")
+      .then((res) => res.json())
+      .then((item) => {
+        setIsLoading(false);
+        setProducts(item);
+      });
+  }, []);
 
   return (
     <div>
-      <h2 className="text-purple-500 text-center text-lg" >Welcome to Fake Store</h2>
-      <div className=' p-4 mb-5 flex flex-wrap justify-center sm:flex-grow sm:flex-nowrap'>
-        <img src={img1} alt="" className='m-1 w-2/3 sm:w-1/2'/>
-        <img src={img2} alt="" className='m-1 w-2/3 sm:w-1/2'/>
+      <Slider />
+
+      <h2 className="w-[100%] text-center text-white bg-purple-600 mt-2">
+        Some of our products
+      </h2>
+      <div className="flex flex-wrap justify-center">
+        {isLoading ? (
+          <Loading />
+        ) : (
+          products.map((el) => (
+            <Link key={el.id} to={`/${el.id}`}>
+              <div className=" w-24 flex flex-col  m-4 border border-solid border-transparent overflow-hidden rounded-md hover:shadow-lg md:w-52">
+                <img src={el.image} alt="" className="p-4" />
+                <p className="text-white bg-green-600 text-xs md:text-lg">
+                  Usd$ {el.price}
+                </p>
+              </div>
+            </Link>
+          ))
+        )}
       </div>
-      <div className='flex justify-center'>
-        <Link to={"/categories"}><h2 className="text-purple-500 text-center text-lg">Explore our product</h2></Link>
-      </div>
-      <div className=' p-4 mb-5 flex flex-wrap justify-center sm:flex-grow sm:flex-nowrap'>
-        <img src={img3} alt="" className='m-1 w-2/3 sm:w-1/2' />
-        <img src={img4} alt="" className='m-1 w-2/3 sm:w-1/2' />
-      </div>
+      <Link to={"/categories"}> <img src={img4} alt="" className='w-[100%] mt-5'/></Link>
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;

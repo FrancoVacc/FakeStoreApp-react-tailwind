@@ -10,28 +10,32 @@ const Categories = () => {
     <div>
       <h2 className="text-purple-500 text-center text-lg">Categories</h2>
       <div className="flex justify-center flex-wrap m-auto">
-        <Link to={`/categories/electronics`}>
+        <Link to={`/categories/electronics`} className="relative">
+          <h4 className="absolute top-14 left-14 text-white font-bold text-lg">Electronics</h4>
           <img
             src={electronics}
             alt="electronics"
             className="m-4 w-80 rounded-md hover:shadow-lg hover:shadow-slate-600"
           />
         </Link>
-        <Link to={`/categories/jewelery`}>
+        <Link to={`/categories/jewelery`} className="relative">
+          <h4 className="absolute top-14 left-14 text-white font-bold text-lg">Jewelery</h4>
           <img
             src={jewelery}
             alt="jewelery"
             className="m-4 w-80 rounded-md hover:shadow-lg hover:shadow-slate-600"
           />
         </Link>
-        <Link to={`/categories/men's%20clothing`}>
+        <Link to={`/categories/men's%20clothing`} className="relative">
+          <h4 className="absolute top-14 left-14 text-white font-bold text-lg">Men's Clothing</h4>
           <img
             src={mancloting}
             alt="mens-cloting"
             className="m-4 w-80 rounded-md hover:shadow-lg hover:shadow-slate-600"
           />
         </Link>
-        <Link to={`/categories/women's%20clothing`}>
+        <Link to={`/categories/women's%20clothing`} className="relative">
+          <h4 className="absolute top-14 left-14 text-white font-bold text-lg">Woman's Clothing</h4>
           <img
             src={womancloting}
             alt="womans-cloting"

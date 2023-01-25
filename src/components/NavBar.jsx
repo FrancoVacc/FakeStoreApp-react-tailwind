@@ -4,7 +4,7 @@ import logo from "../img/logo.png";
 
 const NavBar = () => {
   return (
-    <div className="flex py-4">
+    <div className="flex py-4 bg-slate-100">
       <Link to={"/"}>
         <img src={logo} alt="" className="w-8 h-8 my-4 mx-3" />
       </Link>
