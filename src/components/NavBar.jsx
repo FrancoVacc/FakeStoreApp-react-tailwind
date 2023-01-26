@@ -7,7 +7,7 @@ const NavBar = () => {
   const {cart} = useCartContext()
 
   return (
-    <div className="flex justify-between  bg-slate-100 py-4">
+    <div className="flex justify-between py-4 bg-img bg-cover">
       <div className="flex">
         <Link to={"/"}>
           <img src={logo} alt="" className="w-8 h-8 my-4 mx-4" />

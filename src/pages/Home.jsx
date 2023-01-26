@@ -40,7 +40,10 @@ const Home = () => {
           ))
         )}
       </div>
-      <Link to={"/categories"}> <img src={img4} alt="" className='w-[100%] mt-5'/></Link>
+      <div className="relative">
+        <h4 className="absolute top-12 left-20 text-white font-bold md:text-3xl md:top-40 md:left-40 ">Go to our Categories</h4>
+        <Link to={"/categories"}> <img src={img4} alt="" className='w-[100%] mt-5'/></Link>
+      </div>
     </div>
   );
 };

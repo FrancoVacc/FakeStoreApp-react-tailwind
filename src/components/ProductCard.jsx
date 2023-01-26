@@ -27,10 +27,10 @@ const ProductCard = ({ element }) => {
         </div>
         <div className=" p-2 flex flex-col justify-between md:w-1/2">
           <div>
-            <h3 className="text-slate-800 text-lg text-center">{title}</h3>
+            <h3 className="text-slate-800 text-lg text-center md:text-xl">{title}</h3>
           </div>
           <div>
-            <p className="text-slate-600 text-xs mb-2">{description}</p>
+            <p className="text-slate-600 text-xs mb-2 md:text-base">{description}</p>
           </div>
           <div className="flex">
             <p className="text-white text-xl w-[50%] bg-green-600 rounded-sm px-3 py-2 text-center">

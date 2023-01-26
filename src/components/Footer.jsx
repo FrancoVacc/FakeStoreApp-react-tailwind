@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className='flex bg-gray-100 py-4'>
-        <p className='text-gray-800 m-auto'>Made with <span className='text-red-300'>Love</span></p>
+    <div className='flex bg-img bg-cover py-4'>
+        <p className='text-gray-800 m-auto'>Made with ❤ by: <Link to={"/about"} className="italic text-purple-600">Franco Vaccari</Link> </p>
     </div>
   )
 }

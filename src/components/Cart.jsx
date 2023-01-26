@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useCartContext } from '../contexts/CartContext';
@@ -10,15 +10,33 @@ const Cart = () => {
     const navigate = useNavigate()
 
     const handleDelete = (id) => {
-        const newArray = cart.filter((item) => item.id !== id);
-        setCart(newArray);
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your item has been deleted.',
+            'success'
+          )
+          const newArray = cart.filter((item) => item.id !== id);
+          setCart(newArray);
+        }
+      })
     }
 
     const handleBuy = () =>{
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
-              confirmButton: 'btn btn-success',
-              cancelButton: 'btn btn-danger'
+              confirmButton: 'bg-green-600 rounded-sm text-white px-4 py-2 mx-2 text-lg',
+              cancelButton: 'bg-red-600 rounded-sm text-white px-4 py-2 mx-2 text-lg'
             },
             buttonsStyling: false
           })
@@ -64,14 +82,14 @@ const Cart = () => {
             </div>
         </div>
         <div>
-            <ul>
+            <ul className='md:px-16'>
                 {
                     cart.length > 0 ? cart.map((item) =>
-                        (<div key={item.id}className='p-1 mx-5 my-1 flex items-center border justify-between lg:mx-60 '>
+                        (<div key={item.id}className='py-1 mx-5 my-1 border grid md:grid-cols-7 gap-x-1'>
                             <img src={item.image} alt="" className='w-10 p-1 mx-1' />
-                            <p className='mx-1'>{item.title}</p>
-                            <p className='mx-1 rounded-sm bg-green-600 text-white text-xs py-1 px-3'>Usd ${item.price}</p>
-                            <button className='mx-1 rounded-sm bg-red-600 text-white text-xs py-1 px-3' onClick={()=>handleDelete(item.id)}>Delete</button>
+                            <p className='mx-1 md:col-span-4'>{item.title}</p>
+                            <p className='mx-1 rounded-sm bg-green-600 text-white text-xs py-1 px-3 text-center md:text-xl'>Usd ${item.price}</p>
+                            <button className='mx-1 rounded-sm bg-red-600 text-white text-xs py-1 px-3 md:text-xl' onClick={()=>handleDelete(item.id)}>Delete</button>
                         </div>)
                     ) : 
                     <h4 className='text-center text-2xl p-5 m-5'>No Items 😥</h4>
@@ -80,7 +98,7 @@ const Cart = () => {
             {
                 cart.length > 0 &&
                 <div className='flex justify-center p-5'>
-                    <button className=' rounded-sm bg-green-600 text-white text-xs py-1 px-3' onClick={handleBuy}>Buy Your Cart!!</button>
+                    <button className=' rounded-sm bg-green-600 text-white text-xs py-1 px-3 md:text-2xl' onClick={handleBuy}>Buy Your Cart!!</button>
                 </div>
             }
         </div>

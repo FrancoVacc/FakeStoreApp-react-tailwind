@@ -9,7 +9,7 @@ const PublicLayout = () => {
 
   const navigation = useNavigation()
   return (
-    <div>
+    <div className='md:px-40 my-1'>
         <NavBar/>
         <main>
           {
